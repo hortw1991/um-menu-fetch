@@ -1,3 +1,5 @@
+#!usr/bin/env
+
 """
 Fetches a simple text menu for the day.  Currently only supports today's menu.
 
