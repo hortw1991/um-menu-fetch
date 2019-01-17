@@ -37,9 +37,36 @@ def format_url():
 	
 	return url.format(meal, month, day, year)	
 
+
+def get_request(url):
+	""" Returns response session or error code. """
+	r = requests.get(url)
+
+	if r.status_code != 200:
+		return False
+	else:
+		return r
+
+
+def parse_contents(content):
+	b = BeautifulSoup(content, 'html.parser')
+	c = b.find_all('a', {'class': 'viewItem'})
+
+	return [item.text for item in c]
+
+
+
+
+
 def main():
 	url = format_url()
+	r = get_request(url)
+	if not r:
+		raise ConnectionError
+	
+	food = parse_contents(r.content)
 
+	for item in food: print(item)
 
 
 
