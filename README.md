@@ -1,8 +1,10 @@
 # um-menu-fetch
-Fetches cafeteria information for lunch/dinner for the University of Memphis.
+Fetches a simple text menu at the tiger den or hours of all restaurants.
 
-Fetch the menu and emails it daily with:
+Cmd Line Arguments:
 
-- Hours
-- Lunch/Dinner
-- Key Menu Items (non repeats) - eliminate repeats
+- None (or invalid): returns lunch if time < 4:30pm otherwise dinner
+- Hours: returns a list of all hours
+- Lunch: returns lunch menu
+- Dinner: returns dinner menu
+- Breakfast: returns breakfast menu
