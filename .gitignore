@@ -1,3 +1,4 @@
-/.vscode
+.vscode/
 menu.txt
 hours.txt
+config.py

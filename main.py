@@ -52,10 +52,13 @@ def format_url(flag=None):
 		meal = dinner
 	elif flag == 'breakfast':  # hidden option
 		meal = '1681'
+		flag = 'breakfast'
 	elif cur_time < 1630:
 		meal = lunch
+		flag = 'lunch'
 	else:
 		meal = dinner
+		flag = 'dinner'
 
 	return url.format(meal, month, day, year)
 
@@ -77,15 +80,22 @@ def parse_contents(content):
 	return [item.text for item in c]
 
 
-def print_menu(food):
+def print_menu(food, flag):
 	""" Prints general and daily info. """
-	for item in food: print(item)
+	with open('menu.txt', 'w+') as o:
+		o.write('***{}***\n'.format(flag))
+		print('***{}***\n'.format(flag))
+		for item in food: 
+			o.write(item + '\n')
+			print(item)
 
 
 def display_hours():
 	""" Displays information about location and hours of all fooderies. """
-	with open('tiger_den_hours.txt', 'r') as hours:
-		for line in hours: print(line.strip())
+	with open('tiger_den_hours.txt', 'r') as hours, open('hours.txt', 'w+') as o:
+		for line in hours: 
+			o.write(line + '\n')
+			print(line.strip())
 
 
 def main():
@@ -113,7 +123,7 @@ def main():
 	if not r:
 		raise ConnectionError
 
-	print_menu(parse_contents(r.content))
+	print_menu(parse_contents(r.content), flag)
 
 
 
