@@ -11,6 +11,7 @@ Cmd Line Arguments:
 	Breakfast: returns breakfast menu
 """
 
+
 import requests
 import time
 import sys
@@ -23,10 +24,10 @@ def format_url(flag=None):
 	"""
 
 	# Var order: meal, month, day, date, year
-	#    Lunch: 1683
-	#    Dinner: 1685
-	#    Months and days do NOT have a leading 0
-	#    Year is all 4 digits
+	#	Lunch: 1683
+	#	Dinner: 1685
+	#	Months and days do NOT have a leading 0
+	#	Year is all 4 digits
 	url = "https://memphis.campusdish.com/LocationsAndMenus/TigerDenFoodCourt/TigerDen?locationId=7029&storeId=&mode=Daily&periodId={}&date={}%2F{}%2F{}"
 
 	month = time.strftime('%m')
@@ -85,6 +86,7 @@ def display_hours():
 	""" Displays information about location and hours of all fooderies. """
 	with open('tiger_den_hours.txt', 'r') as hours:
 		for line in hours: print(line.strip())
+
 
 def main():
 	"""
