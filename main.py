@@ -1,5 +1,3 @@
-#!usr/bin/env
-
 """
 Fetches a simple text menu for the day.  Currently only supports today's menu.
 
@@ -33,6 +31,7 @@ def format_url(flag=None):
 	month = time.strftime('%m')
 	day = time.strftime('%d')
 	year = str(time.strftime('%Y'))
+	breakfast = '1681'
 	lunch = '1683'
 	dinner = '1685'
 
@@ -45,13 +44,13 @@ def format_url(flag=None):
 	# Set lunch or dinner flag
 	cur_time = int(time.strftime('%H'))
 
-	# Check for lunch override
+	# Check for specific meal
 	if flag == 'lunch':
 		meal = lunch
 	elif flag == 'dinner':
 		meal = dinner
 	elif flag == 'breakfast':  # hidden option
-		meal = '1681'
+		meal = breakfast
 		flag = 'breakfast'
 	elif cur_time < 1630:
 		meal = lunch
