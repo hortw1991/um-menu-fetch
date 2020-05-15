@@ -1,3 +1,8 @@
+# DEFUNCT
+I left UM for UGA as they updated their dining service so this likely doesn't do anything anymore.
+
+RIP, you saved me many clicks. 
+
 # um-menu-fetch
 Fetches a simple text menu at the tiger den or hours of all restaurants.
 
